@@ -1,0 +1,70 @@
+{
+    "componentname": "Telegram",
+    "componenttitle": "Telegram Bot",
+    "componentcategoryid": 7,
+    "componentclass": "telegram",
+    "version": "0.0.1",
+    "createdby": "Prisma Data Abadi",
+    "input": 1,
+    "output": 1,
+    "details": [
+        {
+            "detailtype": "password",
+            "lable": "Bot Token",
+            "inputtype": "password",
+            "inputname": "token",
+            "inputdesc": "Telegram Bot API Token",
+            "order": 1
+        },
+        {
+            "detailtype": "select",
+            "lable": "Action",
+            "inputtype": "select",
+            "inputname": "action",
+            "inputdesc": "Action to perform",
+            "order": 2,
+            "options": "send_message,get_updates,set_webhook,delete_webhook,get_webhook_info,get_me"
+        },
+        {
+            "detailtype": "text",
+            "lable": "Chat ID",
+            "inputtype": "number",
+            "inputname": "chat_id",
+            "inputdesc": "Target Chat ID (for sending messages)",
+            "order": 3
+        },
+        {
+            "detailtype": "textarea",
+            "lable": "Message Text",
+            "inputtype": "textarea",
+            "inputname": "text",
+            "inputdesc": "Text message to send",
+            "order": 4
+        },
+        {
+            "detailtype": "select",
+            "lable": "Parse Mode",
+            "inputtype": "select",
+            "inputname": "parse_mode",
+            "inputdesc": "Message formatting mode",
+            "order": 5,
+            "options": ",Markdown,HTML,MarkdownV2"
+        },
+        {
+            "detailtype": "text",
+            "lable": "Webhook URL",
+            "inputtype": "text",
+            "inputname": "webhook_url",
+            "inputdesc": "URL for Webhook setup",
+            "order": 6
+        },
+        {
+            "detailtype": "text",
+            "lable": "Update Offset",
+            "inputtype": "number",
+            "inputname": "offset",
+            "inputdesc": "Offset for polling updates",
+            "order": 7
+        }
+    ]
+}
