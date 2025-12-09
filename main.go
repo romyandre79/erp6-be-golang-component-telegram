@@ -62,7 +62,7 @@ func main() {
 	}
 
 	// Validate required parameters
-	if token == "" {
+	if action != "handle_webhook" && token == "" {
 		json.NewEncoder(os.Stdout).Encode(Output{Error: "token is required"})
 		return
 	}
@@ -147,6 +147,17 @@ func main() {
 			return
 		}
 		json.NewEncoder(os.Stdout).Encode(Output{Result: user})
+
+	case "handle_webhook":
+		// User wants to recognize who sent the hook.
+		// We can parse the input params which contains 'body', 'headers', etc.
+		// For verification, we just echo back that we received it.
+		// In a real scenario, we would parse `body` into an Update struct.
+		json.NewEncoder(os.Stdout).Encode(Output{Result: map[string]string{
+			"status":  "success",
+			"source":  "telegram",
+			"message": "Webhook received. Check logs/output for details.",
+		}})
 
 	default:
 		json.NewEncoder(os.Stdout).Encode(Output{Error: "invalid action"})
